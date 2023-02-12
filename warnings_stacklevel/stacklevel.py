@@ -28,7 +28,6 @@ def parse_argv() -> argparse.Namespace:
         action="store",
         nargs="*",
         default=[],
-        dest="filenames",
         help="The sequence of tracked staged files",
     )
     return FileContainer(files=parser.parse_args().filenames)
