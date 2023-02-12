@@ -34,6 +34,6 @@ repos:
     hooks:
       - id: mypy
   - repo: .
-    rev: fc6900ac49caf75cacd8f1a4b2932466cfd8fb2f
+    rev: e47998c
     hooks:
       - id: warnings_stacklevel
