@@ -20,16 +20,18 @@ def main() -> int:
 
 
 def parse_argv() -> argparse.Namespace:
+    """Handle parsing the command line arguments.  pre-commit implicitly is handling
+    the filenames sequence, we just parse it internally when provided here."""
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--filenames",
+        "filenames",
         action="store",
-        nargs="+",
+        nargs="*",
         default=[],
         dest="filenames",
         help="The sequence of tracked staged files",
     )
-    return parser.parse_args()
+    return FileContainer(files=parser.parse_args().filenames)
 
 
 if __name__ == "__main__":
