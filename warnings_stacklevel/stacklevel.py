@@ -22,7 +22,12 @@ def main() -> int:
 def parse_argv() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        "--filenames", action="store", nargs="+", default=[], dest="filenames", help="The sequence of tracked staged files"
+        "--filenames",
+        action="store",
+        nargs="+",
+        default=[],
+        dest="filenames",
+        help="The sequence of tracked staged files",
     )
     return parser.parse_args()
 

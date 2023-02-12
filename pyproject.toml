@@ -51,3 +51,7 @@ ignore_errors = false
 [tool.black]
 target-version = ["py310"]
 line-length = 120
+
+
+[tool.poetry.scripts]
+warnings_stacklevel = "warnings_stacklevel.stacklevel:main"
