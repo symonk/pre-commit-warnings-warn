@@ -1,6 +1,5 @@
 import argparse
 import ast
-import dataclasses
 import typing
 
 
@@ -20,7 +19,10 @@ class WarningsWarnVisitor(ast.NodeVisitor):
         self.violations: typing.List[Result] = []
 
     def visit_Call(self, node: ast.Call) -> None:
-        print(node)
+        """Inspect all the calls for the file checking for warnings.warn
+        calls where the stacklevel is either not provided or is explicitly
+        provided as `1`."""
+        ...
 
 
 def check_python_file(name: str) -> typing.List[Result]:
