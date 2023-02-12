@@ -34,6 +34,6 @@ repos:
     hooks:
       - id: mypy
   - repo: .
-    rev: ba3bdbc
+    rev: HEAD
     hooks:
       - id: warnings_stacklevel

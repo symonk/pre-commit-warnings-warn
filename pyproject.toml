@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "pre-commit-warning-stacklevel"
+name = "warnings_stacklevel"
 version = "0.1.0"
 description = "A pre-commit hook that ensures emitting warnings does not use the default stacklevel"
 authors = ["symonk <jackofspaces@gmail.com>"]
 license = "apache"
 readme = "README.md"
-packages = [{include = "pre_commit_warning_stacklevel"}]
+
 
 [tool.poetry.dependencies]
 python = "^3.8"
