@@ -1,1 +1,7 @@
-id: warn_stacklevel
+- id: warnings_stacklevel
+  name: warnings_stacklevel
+  description: "A pre-commit hook for preventing default warnings.warn stacklevel"
+  entry: warnings_stacklevel
+  minimum_pre_commit_version: 2.9.2
+  require_serial: true
+  types: [python]
