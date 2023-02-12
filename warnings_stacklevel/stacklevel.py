@@ -14,8 +14,8 @@ def main() -> int:
     """A Pre-commit hook that checks for the default `stacklevel` argument when attempting to
     emit python warnings.  Often stacklevel is left on the default `1` which offers little
     value."""
-    breakpoint()
     files = parse_argv().filenames
+    print(files)
     return 0
 
 
