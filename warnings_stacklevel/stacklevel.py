@@ -22,8 +22,11 @@ class WarningsWarnVisitor(ast.NodeVisitor):
         """Inspect all the calls for the file checking for warnings.warn
         calls where the stacklevel is either not provided or is explicitly
         provided as `1`."""
-        ...
-
+        if node.func.attr == "warn":
+            for argument in node.keywords:
+                if argument.arg == "stacklevel" and argument.value.value < 2:
+                    self.violations.append(Result(node.func.attr, node.lineno, node.col_offset))
+        self.generic_visit(node)
 
 def check_python_file(name: str) -> typing.List[Result]:
     """Given a file path, open and parse the AST of the file
@@ -48,7 +51,7 @@ def main() -> int:
         if results:
             exit_code = 1
         for result in results:
-            print(f"{file}:{result.line}:{result.column}: `warnings.warn(..., stacklevel=1)` detected.")
+            print(f"{file}:{result.line}:{result.column}: `warnings.warn` detected with default or stacklevel= less than 2.")
     return exit_code
 
 
